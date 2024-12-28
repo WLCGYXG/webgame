@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Farm Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .requirements {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        .invalid {
+            border-color: #ff4444;
+        }
+        .valid {
+            border-color: #4CAF50;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        button:enabled {
+            opacity: 1;
+        }
+        button:enabled:hover {
+            background-color: #45a049;
+        }
+        .links {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .validation-message {
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+        .validation-message.error {
+            color: #ff4444;
+        }
+        .validation-message.success {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Register for Farm Game</h2>
+        <div id="error-message" class="error-message"></div>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required minlength="4" maxlength="20">
+                <div class="requirements">
+                    Requirements:
+                    <ul>
+                        <li>4-20 characters long</li>
+                        <li>Only letters, numbers, and underscores</li>
+                    </ul>
+                </div>
+                <div id="username-validation" class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="8">
+                <div class="requirements">
+                    Requirements:
+                    <ul>
+                        <li>At least 8 characters long</li>
+                        <li>At least one letter</li>
+                        <li>At least one number</li>
+                    </ul>
+                </div>
+                <div id="password-validation" class="validation-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div id="confirm-password-validation" class="validation-message"></div>
+            </div>
+            <button type="submit" id="submit-btn" disabled>Register</button>
+        </form>
+        <div class="links">
+            <p>Already have an account? <a href="login.html">Login Now</a></p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('register-form');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm-password');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function validateUsername(value) {
+            const usernameRegex = /^[a-zA-Z0-9_]{4,20}$/;
+            const validation = document.getElementById('username-validation');
+            
+            if (!value) {
+                validation.textContent = 'Username is required';
+                validation.className = 'validation-message error';
+                username.className = 'invalid';
+                return false;
+            }
+            
+            if (!usernameRegex.test(value)) {
+                validation.textContent = 'Username must be 4-20 characters long and contain only letters, numbers, and underscores';
+                validation.className = 'validation-message error';
+                username.className = 'invalid';
+                return false;
+            }
+            
+            validation.textContent = 'Username is valid';
+            validation.className = 'validation-message success';
+            username.className = 'valid';
+            return true;
+        }
+
+        function validatePassword(value) {
+            const validation = document.getElementById('password-validation');
+            const minLength = value.length >= 8;
+            const hasLetter = /[a-zA-Z]/.test(value);
+            const hasNumber = /[0-9]/.test(value);
+            
+            if (!value) {
+                validation.textContent = 'Password is required';
+                validation.className = 'validation-message error';
+                password.className = 'invalid';
+                return false;
+            }
+            
+            let message = [];
+            if (!minLength) message.push('at least 8 characters');
+            if (!hasLetter) message.push('a letter');
+            if (!hasNumber) message.push('a number');
+            
+            if (message.length > 0) {
+                validation.textContent = 'Password must contain ' + message.join(', ');
+                validation.className = 'validation-message error';
+                password.className = 'invalid';
+                return false;
+            }
+            
+            validation.textContent = 'Password is valid';
+            validation.className = 'validation-message success';
+            password.className = 'valid';
+            return true;
+        }
+
+        function validateConfirmPassword(value) {
+            const validation = document.getElementById('confirm-password-validation');
+            
+            if (!value) {
+                validation.textContent = 'Please confirm your password';
+                validation.className = 'validation-message error';
+                confirmPassword.className = 'invalid';
+                return false;
+            }
+            
+            if (value !== password.value) {
+                validation.textContent = 'Passwords do not match';
+                validation.className = 'validation-message error';
+                confirmPassword.className = 'invalid';
+                return false;
+            }
+            
+            validation.textContent = 'Passwords match';
+            validation.className = 'validation-message success';
+            confirmPassword.className = 'valid';
+            return true;
+        }
+
+        function validateForm() {
+            const isUsernameValid = validateUsername(username.value);
+            const isPasswordValid = validatePassword(password.value);
+            const isConfirmPasswordValid = validateConfirmPassword(confirmPassword.value);
+            
+            submitBtn.disabled = !(isUsernameValid && isPasswordValid && isConfirmPasswordValid);
+        }
+
+        username.addEventListener('input', () => {
+            validateUsername(username.value);
+            validateForm();
+        });
+
+        password.addEventListener('input', () => {
+            validatePassword(password.value);
+            validateConfirmPassword(confirmPassword.value);
+            validateForm();
+        });
+
+        confirmPassword.addEventListener('input', () => {
+            validateConfirmPassword(confirmPassword.value);
+            validateForm();
+        });
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                const response = await fetch('api/register.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username.value,
+                        password: password.value
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    window.location.href = 'login.html';
+                } else {
+                    const errorMessage = document.getElementById('error-message');
+                    errorMessage.textContent = data.message || 'Registration failed';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'An error occurred, please try again later';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

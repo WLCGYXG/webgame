@@ -1,0 +1,129 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map/home.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "map"
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "map/Tilled_Dirt.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 4
+        },
+        "map/airwall.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Basic_Furniture.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Doors.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Free_Chicken_House.tsx": {
+            "scaleInDock": 3
+        },
+        "map/basic/Grass.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Hills.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Paths.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Tilled_Dirt.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Water.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Wooden_House_Roof_Tilset.tsx": {
+            "scaleInDock": 1
+        },
+        "map/basic/Wooden_House_Walls_Tilset.tsx": {
+            "scaleInDock": 2
+        },
+        "map/home..tmj": {
+            "scale": 0.7735714285714286,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 560.3878116343491,
+                "y": 319.9445983379501
+            }
+        },
+        "map/home.js": {
+            "scale": 0.7735714285714286,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 559.741458910434,
+                "y": 319.94459833795014
+            }
+        },
+        "map/home.tmj": {
+            "scale": 0.7735714285714286,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 559.741458910434,
+                "y": 319.94459833795014
+            }
+        },
+        "map/home.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 567.75,
+                "y": 236.25
+            }
+        },
+        "map/natur/Basic_Grass_Biom_things.tsx": {
+            "scaleInDock": 1
+        },
+        "player.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "untitled.tmx": {
+            "scale": 12.7953125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 31.964830870680178,
+                "y": 8.010746122847724
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/CGY/Desktop/webgame/map",
+    "last.imagePath": "C:/Users/CGY/Desktop/webgame/Sprout Lands - Sprites - Basic pack/Tilesets",
+    "map.height": 4,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 4,
+    "openFiles": [
+        "map/home.tmx",
+        "map/Tilled_Dirt.tsx",
+        "map/home.tmj",
+        "untitled.tmx",
+        "map/home.js"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "map/home.js",
+        "untitled.tmx",
+        "map/home.tmj",
+        "map/Tilled_Dirt.tsx",
+        "map/home.tmx",
+        "map/home..tmj",
+        "player.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

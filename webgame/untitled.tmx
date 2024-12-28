@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="4" height="1" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="1">
+ <tileset firstgid="1" source="player.tsx"/>
+ <layer id="1" name="up" width="4" height="1">
+  <data encoding="csv">
+21,22,23,24
+</data>
+ </layer>
+ <layer id="4" name="down" width="4" height="1" visible="0">
+  <data encoding="csv">
+17,18,19,20
+</data>
+ </layer>
+ <layer id="3" name="left" width="4" height="1" visible="0">
+  <data encoding="csv">
+25,26,27,28
+</data>
+ </layer>
+ <layer id="2" name="right" width="4" height="1" visible="0">
+  <data encoding="csv">
+29,30,31,32
+</data>
+ </layer>
+</map>
